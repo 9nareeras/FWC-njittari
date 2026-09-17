@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.parallax {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.first {
+    background-image: url("https://www.vetstreet.com/wp-content/uploads/2022/09/shutterstock_2161329129-scaled.jpg");
+}
+
+.second {
+    background-image: url("https://thonglorpet.com/_content_images/petdiary/S0456.jpg.webp?vs=20251106092211");
+}
+
+.parallax h1 {
+    color: white;
+    font-size: 40px;
+
+    background-color: rgba(0, 0, 0, 0.45);
+
+    padding: 15px 25px;
+}
+
+.black-section {
+    height: 50vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    color: white;
+
+    font-size: 24px;
+}
