@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.calculator {
+    display: flex;
+    gap: 10px;
+
+    padding: 24px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+input,
+select {
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+#submit {
+    cursor: pointer;
+}
