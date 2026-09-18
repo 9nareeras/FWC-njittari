@@ -1,0 +1,860 @@
+/*
+    * หมายถึง element ทุกตัวในหน้าเว็บ
+
+    เรากำหนด margin และ padding เป็น 0
+    เพื่อเอาระยะเริ่มต้นของ browser ออก
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+    ทำให้เวลากด HOME / ABOUT / SKILLS
+    หน้าเว็บค่อย ๆ เลื่อนไป
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*
+    ตกแต่งเว็บไซต์โดยรวม
+*/
+
+body {
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background-color: #fffaf0;
+
+    color: #4c4639;
+
+}
+
+
+/*
+    เพราะ Navbar อยู่ด้านบนตลอด
+
+    scroll-margin-top ช่วยไม่ให้หัวข้อ section
+    ถูก Navbar บังเวลากดเมนู
+*/
+
+section {
+    scroll-margin-top: 80px;
+}
+
+.navbar {
+
+    /*
+        fixed = Navbar จะอยู่ด้านบนตลอด
+        แม้ว่าเราจะเลื่อนหน้าเว็บลง
+    */
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 8%;
+
+    background-color: #fffaf0;
+
+    border-bottom: 1px solid #d7d9bc;
+
+    /*
+        ทำให้ Navbar อยู่เหนือส่วนอื่น
+    */
+
+    z-index: 1000;
+
+}
+
+
+/* ชื่อ MUSE ทางซ้าย */
+
+.logo {
+
+    font-family: "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #60704d;
+
+}
+
+
+/*
+    กล่องสำหรับเมนู
+*/
+
+.nav-links {
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+/*
+    ตกแต่งตัว Link
+*/
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #60704d;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+/*
+    เมื่อเอาเมาส์ไปชี้เมนู
+*/
+
+.nav-links a:hover {
+
+    color: #b27d5c;
+
+}
+
+.home {
+
+    /*
+        100vh = ความสูงเต็มหน้าจอ
+    */
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 120px 20px 60px;
+
+
+    /*
+        gradient สีอ่อน
+        ให้ความรู้สึกธรรมชาติ / fantasy
+    */
+
+    background:
+        linear-gradient(180deg,
+            #f4f0d9,
+            #fffaf0);
+
+}
+
+
+.home-content {
+
+    max-width: 750px;
+
+}
+
+
+/* ข้อความเล็กด้านบน */
+
+.small-title {
+
+    font-family: Georgia, serif;
+
+    color: #84926d;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* Welcome to my World. */
+
+.home h1 {
+
+    font-family: "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 65px;
+
+    font-weight: normal;
+
+    color: #566647;
+
+    margin-bottom: 20px;
+
+}
+
+
+.home-description {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* ปุ่ม Explore */
+
+.home-button {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    background-color: #82916b;
+
+    color: white;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+
+}
+
+
+.home-button:hover {
+
+    background-color: #657353;
+
+    transform: translateY(-3px);
+
+}
+
+.section-small-title {
+
+    font-family: Georgia, serif;
+
+    color: #84926d;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.section-description {
+
+    max-width: 650px;
+
+    margin: 0 auto 40px;
+
+    line-height: 1.8;
+
+}
+
+.about {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 120px 10% 80px;
+
+    background-color: #fffaf0;
+
+}
+
+
+/*
+    รูป Muse
+*/
+
+.about-image img {
+
+    width: 320px;
+
+    height: 400px;
+
+    /*
+        cover ทำให้รูปไม่ยืดหรือบีบ
+    */
+
+    object-fit: cover;
+
+    /*
+        ขยับตำแหน่งภาพเล็กน้อย
+        เพื่อให้ใบหน้าอยู่กลางกรอบ
+    */
+
+    object-position: center;
+
+    /*
+        ทำให้ด้านบนโค้งคล้ายประตู fairy
+    */
+
+    border-radius: 160px 160px 25px 25px;
+
+    border: 8px solid #e4dfc7;
+
+    box-shadow: 0 8px 25px rgba(72, 80, 55, 0.15);
+
+}
+
+
+.about-text {
+
+    max-width: 550px;
+
+}
+
+
+/* I'm Muse */
+
+.about-text h2 {
+
+    font-family: "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 48px;
+
+    font-weight: normal;
+
+    color: #566647;
+
+    margin-bottom: 20px;
+
+}
+
+
+.about-text p {
+
+    line-height: 1.8;
+
+    margin-bottom: 16px;
+
+}
+
+.skills {
+
+    min-height: 85vh;
+
+    padding: 110px 10%;
+
+    text-align: center;
+
+    background-color: #edf0dd;
+
+}
+
+
+.skills h2 {
+
+    font-family: "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 43px;
+
+    font-weight: normal;
+
+    color: #566647;
+
+    margin-bottom: 15px;
+
+}
+
+
+/*
+    กล่องที่เก็บ Skill ทั้งสอง
+*/
+
+.skills-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/*
+    Skill Card
+*/
+
+.skill-card {
+
+    width: 340px;
+
+    background-color: #fffaf0;
+
+    padding: 35px 28px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 15px rgba(72, 80, 55, 0.1);
+
+    transition: 0.3s;
+
+}
+
+
+.skill-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.skill-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.skill-card h3 {
+
+    font-family: Georgia, serif;
+
+    color: #667653;
+
+    font-size: 21px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.skill-card p {
+
+    line-height: 1.7;
+
+}
+
+.hobby {
+
+    padding: 110px 7%;
+
+    text-align: center;
+
+    background-color: #fffaf0;
+
+}
+
+
+.hobby h2 {
+
+    font-family: "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 43px;
+
+    font-weight: normal;
+
+    color: #566647;
+
+    margin-bottom: 15px;
+
+}
+
+
+/*
+    กระดาน Hobby
+
+    3 คอลัมน์
+    = Drawing / Cooking / Wild Rift
+*/
+
+.hobby-board {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+
+/*
+    แต่ละ Hobby Card
+*/
+
+.hobby-card {
+
+    background-color: #f5f0dc;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    border: 1px solid #ded8bd;
+
+    box-shadow: 0 5px 15px rgba(72, 80, 55, 0.1);
+
+    transition: 0.3s;
+
+}
+
+
+/*
+    เวลาชี้เมาส์
+    Card ขยับขึ้นเล็กน้อย
+*/
+
+.hobby-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+/*
+    รูปจะอยู่ด้านบนของ Hobby ทุกอัน
+*/
+
+.hobby-card img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/*
+    รูป Paint เป็นภาพแนวตั้ง
+    เลยจัดให้อยู่ตรงกลาง
+*/
+
+.hobby-card:first-child img {
+
+    object-position: center;
+
+}
+
+
+/*
+    พื้นที่ข้อความใต้รูป
+*/
+
+.hobby-text {
+
+    padding: 0 10px 15px;
+
+}
+
+
+.hobby-card h3 {
+
+    font-family: Georgia, serif;
+
+    color: #61704f;
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.hobby-card p {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+.contact {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background-color: #e7ead6;
+
+}
+
+
+.contact h2 {
+
+    font-family: "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 45px;
+
+    font-weight: normal;
+
+    color: #566647;
+
+    margin-bottom: 15px;
+
+}
+
+
+.contact p {
+
+    max-width: 500px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+}
+
+
+/*
+    ปุ่ม Instagram
+*/
+
+.instagram-button {
+
+    text-decoration: none;
+
+    background-color: #b98268;
+
+    color: white;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+
+}
+
+
+.instagram-button:hover {
+
+    background-color: #946650;
+
+    transform: translateY(-3px);
+
+}
+
+@media (max-width: 768px) {
+
+
+    /*
+        Navbar เปลี่ยนจากแนวนอน
+        เป็นเรียงสองชั้น
+    */
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 12px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 11px;
+
+    }
+
+
+    section {
+
+        scroll-margin-top: 115px;
+
+    }
+
+
+    /* HOME */
+
+    .home {
+
+        padding-top: 150px;
+
+    }
+
+
+    .home h1 {
+
+        font-size: 42px;
+
+    }
+
+
+    .home-description {
+
+        font-size: 16px;
+
+    }
+
+
+    /* ABOUT */
+
+    .about {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 35px;
+
+        padding: 160px 8% 80px;
+
+    }
+
+
+    .about-image img {
+
+        width: 250px;
+
+        height: 320px;
+
+    }
+
+
+    .about-text h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    /* SKILLS */
+
+    .skills {
+
+        padding-left: 7%;
+
+        padding-right: 7%;
+
+    }
+
+
+    .skill-card {
+
+        width: 100%;
+
+    }
+
+
+    /* HOBBY */
+
+    .hobby-board {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hobby-card {
+
+        max-width: 420px;
+
+        width: 100%;
+
+        margin: 0 auto;
+
+    }
+
+
+    .hobby-card img {
+
+        height: 250px;
+
+    }
+
+
+    /* CONTACT */
+
+    .contact h2 {
+
+        font-size: 38px;
+
+    }
+
+}

@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-image: url("image/background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #ffff;
+}
+
+.home {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro h1 {
+    font-size: 64px;
+    margin-bottom: 15px;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #ffff;
+}
+
+.portfolio-select {
+    display: flex;
+    gap: 30px;
+}
+
+.portfolio-card {
+    width: 300px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+
+    color: #111;
+    text-decoration: none;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.portfolio-card h2 {
+    font-size: 44px;
+}
+
+.portfolio-card span {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+/* NIN */
+
+.nin:hover {
+    border-color: #ff3b30;
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 30px rgba(255, 59, 48, 0.15);
+}
+
+.nin:hover h2,
+.nin:hover span {
+    color: #ff3b30;
+}
+
+/* MUSE */
+
+.muse:hover {
+    border-color: #60704d;
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 30px rgba(255, 92, 168, 0.15);
+}
+
+.muse:hover h2,
+.muse:hover span {
+    color: #60704d;
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding: 30px 20px;
+        justify-content: center;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+
+    .portfolio-select {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .portfolio-card {
+        width: 100%;
+        max-width: 360px;
+        height: 200px;
+    }
+
+    .portfolio-card h2 {
+        font-size: 36px;
+    }
+}
